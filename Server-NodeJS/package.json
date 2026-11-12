@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsnd --respawn --clear src/app.ts"
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/app.js",
+    "start:dev": "tsnd --respawn --clear src/app.ts"
   },
   "keywords": [],
   "author": "",

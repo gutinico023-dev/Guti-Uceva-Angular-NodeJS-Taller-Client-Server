@@ -60,6 +60,10 @@ export class Server {
     this.app.use(cors());
     this.app.use(express.json());
 
+    this.app.get("/health", (_req, res) => {
+      res.status(200).json({ status: "ok" });
+    });
+
     //* Public Folder
     this.app.use(express.static(this.publicPath));
 
@@ -76,7 +80,7 @@ export class Server {
       );
     });
 
-    this.app.listen(this.port, () => {
+    this.app.listen(this.port, "0.0.0.0", () => {
       console.log(`Server Running on Port ${this.port}`);
     });
   }

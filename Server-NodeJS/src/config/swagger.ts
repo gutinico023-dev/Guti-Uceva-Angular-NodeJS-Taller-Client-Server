@@ -1,4 +1,5 @@
 import swaggerJsdoc from 'swagger-jsdoc';
+import { envs } from './envs';
 
 /**
  * Especificación de Swagger (OpenAPI) para la API.
@@ -28,7 +29,7 @@ export const swaggerSpec = swaggerJsdoc({
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: envs.API_PUBLIC_URL,
       },
     ],
   },

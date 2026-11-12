@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: guti-uceva-client-server-api
+    runtime: node
+    plan: free
+    rootDir: Server-NodeJS
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: PUBLIC_PATH
+        value: public
+      - key: API_PUBLIC_URL
+        value: https://guti-uceva-client-server-api.onrender.com

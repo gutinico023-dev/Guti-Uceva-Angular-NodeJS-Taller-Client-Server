@@ -27,5 +27,5 @@ export const environment = {
    * `${environment.baseUrl}/users`
    * ```
    */
-  baseUrl: 'http://localhost:3000'
+  baseUrl: 'https://guti-uceva-client-server-api.onrender.com'
 };

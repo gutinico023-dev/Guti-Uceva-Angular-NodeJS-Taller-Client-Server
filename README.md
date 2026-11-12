@@ -35,6 +35,8 @@ Para ejecutar el proyecto debemos usar el siguiente comando
 
 ```npm run start```
 
+Para iniciar el servidor local con recarga automática usa `npm run start:dev`.
+
 ### 4️⃣ Abrir en el navegador
 
 Cuando el servidor esté en ejecución, abre un navegador y accede a: `http://localhost:3000/`
@@ -53,6 +55,18 @@ Debemos poder observar una respuesta mediante un navegador web o el promagrama P
 
 - `http://localhost:3000/api/users`
 - `http://localhost:3000/api/products`
+
+## Publicación del backend
+
+GitHub Pages solo publica el cliente Angular. El backend Express está preparado como Web Service de Render mediante `render.yaml`.
+
+En Render, crea un Blueprint desde este repositorio y usa la rama `develop`. El servicio quedará disponible en:
+
+- API: `https://guti-uceva-client-server-api.onrender.com`
+- Health check: `https://guti-uceva-client-server-api.onrender.com/health`
+- Swagger: `https://guti-uceva-client-server-api.onrender.com/api/docs`
+
+El cliente Angular ya utiliza esa URL pública. Render debe estar conectado al repositorio para ejecutar `npm ci && npm run build` desde `Server-NodeJS` y arrancar con `npm start`.
 
 ## ▶️ Iniciar el Client (Client-Angular) en Modo Desarrollo
 

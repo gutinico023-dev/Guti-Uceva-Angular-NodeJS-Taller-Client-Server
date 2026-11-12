@@ -18,6 +18,7 @@ import { get } from "env-var";
  * ```
  */
 export const envs = {
-  PORT: get("PORT").required().asPortNumber(),
+  PORT: get("PORT").default("3000").asPortNumber(),
   PUBLIC_PATH: get("PUBLIC_PATH").default("public").asString(),
+  API_PUBLIC_URL: get("API_PUBLIC_URL").default("http://localhost:3000").asString(),
 };

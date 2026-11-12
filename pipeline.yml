@@ -44,12 +44,30 @@ jobs:
         with:
           path: ./Client-Angular/dist/Angular-Standalone-Template/browser
 
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: Server-NodeJS/package-lock.json
+      - name: Install backend dependencies
+        working-directory: Server-NodeJS
+        run: npm ci
+      - name: Build Node.js backend
+        working-directory: Server-NodeJS
+        run: npm run build
+
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, backend]
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
